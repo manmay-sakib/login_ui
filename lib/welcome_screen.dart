@@ -27,7 +27,7 @@ class WelcomeScreen extends StatelessWidget {
               children: [
                 const Spacer(flex: 1),
                 const Text(
-                  'Welcome To The Matchmacking Application',
+                  'Welcome To The Matchmaking Application',
                   style: TextStyle(
                     fontSize: 36,
                     color: Colors.white,
@@ -41,7 +41,7 @@ class WelcomeScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) {
-                        return LoginScreen();
+                        return const LoginScreen();
                       },
                     ));
                   },

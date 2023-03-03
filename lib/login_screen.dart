@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_ui/verification_page.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -16,21 +17,26 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-                colors: [
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
               Colors.purple,
               Colors.indigo,
-            ])),
+            ],
+          ),
+        ),
         child: SafeArea(
           child: Padding(
-            padding: EdgeInsets.all(24.0),
+            padding: const EdgeInsets.all(24.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const SizedBox(
+                  height: 88,
+                ),
+                const Text(
                   'Login',
                   style: TextStyle(
                     fontSize: 36,
@@ -38,12 +44,20 @@ class _LoginScreenState extends State<LoginScreen> {
                     color: Colors.white,
                   ),
                 ),
-                Text(
+                // Spacer(),
+                const SizedBox(
+                  height: 16,
+                ),
+                const Text(
                   'Hello, Welcome back',
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.white,
                   ),
+                ),
+                // Spacer(),
+                const SizedBox(
+                  height: 40,
                 ),
                 Card(
                   shape: RoundedRectangleBorder(
@@ -54,31 +68,16 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Username'),
-                        SizedBox(
-                          height: 4,
-                        ),
-                        TextField(
-                          decoration: InputDecoration(
-                            contentPadding: EdgeInsets.symmetric(
-                              vertical: 0,
-                              horizontal: 16,
-                            ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
+                        const SizedBox(
                           height: 8,
                         ),
-                        Text('Password'),
-                        SizedBox(
-                          height: 4,
+                        const Text('Username'),
+                        const SizedBox(
+                          height: 8,
                         ),
                         TextField(
                           decoration: InputDecoration(
-                            contentPadding: EdgeInsets.symmetric(
+                            contentPadding: const EdgeInsets.symmetric(
                               vertical: 0,
                               horizontal: 16,
                             ),
@@ -87,32 +86,59 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                         ),
-                        SizedBox(
-                          height: 24,
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        const Text('Password'),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        TextField(
+                          decoration: InputDecoration(
+                            contentPadding: const EdgeInsets.symmetric(
+                              vertical: 0,
+                              horizontal: 16,
+                            ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 40,
                         ),
                         ElevatedButton(
-                          onPressed: () {},
-                          child: Text('Continue'),
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return const VerificationPage();
+                                },
+                              ),
+                            );
+                          },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xff49c09a),
+                            backgroundColor: const Color(0xff49c09a),
                             elevation: 0,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
                             ),
-                            minimumSize: Size(double.infinity, 48),
-                            textStyle: TextStyle(
+                            minimumSize: const Size(double.infinity, 48),
+                            textStyle: const TextStyle(
                               fontSize: 18,
                             ),
                           ),
+                          child: const Text('Continue'),
                         ),
                       ],
                     ),
                   ),
                 ),
+                // Spacer(),
                 Row(
                   children: [
                     Checkbox(
-                      side: BorderSide(
+                      side: const BorderSide(
                         color: Colors.white,
                       ),
                       value: checked,
@@ -121,16 +147,16 @@ class _LoginScreenState extends State<LoginScreen> {
                         setState(() {});
                       },
                     ),
-                    Text(
+                    const Text(
                       'Remember Me ?',
                       style: TextStyle(
                         color: Colors.white,
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     TextButton(
                       onPressed: () {},
-                      child: Text(
+                      child: const Text(
                         'Forgot Password',
                         style: TextStyle(
                           color: Colors.white,
@@ -138,7 +164,33 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     )
                   ],
-                )
+                ),
+                const SizedBox(
+                  height: 24,
+                ),
+                // Spacer(),
+
+                Row(
+                  // crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'Not a member yet?',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        'Join now',
+                        style: TextStyle(
+                          color: Colors.yellow,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
