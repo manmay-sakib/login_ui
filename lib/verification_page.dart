@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:login_ui/welcome_screen.dart';
-import 'login_screen.dart';
 
 class VerificationPage extends StatelessWidget {
   const VerificationPage({Key? key}) : super(key: key);
@@ -78,7 +77,7 @@ class VerificationPage extends StatelessWidget {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
                                   builder: (context) {
-                                    return WelcomeScreen();
+                                    return const WelcomeScreen();
                                   },
                                 ),
                               );
